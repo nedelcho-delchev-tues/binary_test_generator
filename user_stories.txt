@@ -1,0 +1,15 @@
+Get user input
+  - Get input for number of tests - Georgi Ivanov
+  - Get input for difficulty (easy or hard) - Georgi Ivanov
+
+Generating tests
+  - Generate tests according to difficulty - Nedelcho Delchev
+  - Convert test to exceutable C code - Georgi Ivanov
+  - Run C code - Georgi Ivanov
+  - Get task result - Georgi Ivanov
+  
+Convert in PDF
+  - Generate tests as html - Nedelcho Delchev
+  - Generate answers as html - Nedelcho Delchev
+  - Convert every test into a .pdf file - Nedelcho Delchev
+  - Convert the answers to the test into a .pdf file - Nedelcho Delchev
