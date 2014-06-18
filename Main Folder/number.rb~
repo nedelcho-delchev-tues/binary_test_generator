@@ -37,11 +37,7 @@ class Number
 		@num_to_string = [@number].join 
 	end
 
-	def print_number()
+	def print_number
 		puts @num_to_string
 	end
 end
-
-num = Number.new("easy", 4)
-num.generate_random_hex_num
-puts num.print_number

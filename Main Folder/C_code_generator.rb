@@ -3,12 +3,14 @@ class C_code_generator
 	@ending_of_C_file
 	@essential_code
 
-	def initialize
+	def initialize(code)
 		@begining_of_C_file = 
 		"#include <stdio.h>\nint main(){"
 
 		@ending_of_C_file = 
 		"\n\treturn 0;\n}"
+
+		@essential_code = code
 	end
 
 	def create_C_file
@@ -19,7 +21,7 @@ class C_code_generator
 
 	def write_in_file
 		File.open("test_code.c", "w") do |file| 
-			file.write("#{@begining_of_C_file} \n\tint orig = 0x#{123}; \n\tint num = 0x#{2342}; \n\tint result = orig & num; \n\tprintf(\"%d\",result); #{@ending_of_C_file}") # pls no hate ;(
+			file.write("#{@begining_of_C_file}\n #{@essential_code}\n #{@ending_of_C_file}")
 		end
 	end
 
@@ -31,13 +33,10 @@ class C_code_generator
 	def get_result
 		f = File.open("result.txt", "r")
 		f.each_line do |line|
-		  puts line
+			puts line
 		end
 		f.close
 	end
 
 
 end
-
-asd = C_code_generator.new
-asd.create_C_file

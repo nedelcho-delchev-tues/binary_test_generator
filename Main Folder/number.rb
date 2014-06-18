@@ -34,10 +34,11 @@ class Number
 	end
 
 	def convert_num_to_string
-		@num_to_string = [@number].join 
+		@num_to_string = [@number].join
+		return @num_to_string
 	end
 
-	def print_number()
+	def print_number
 		puts @num_to_string
 	end
 end
