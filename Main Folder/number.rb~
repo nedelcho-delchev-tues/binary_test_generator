@@ -21,7 +21,7 @@ class Number
 
 	def rand_num_easy
 		@number.each_index do |el|
-			@number[el] = rand(10...16).to_s(16)
+			@number[el] = rand(10..16).to_s(16)
 		end
 		@number[rand(0...@number.length)] = 0
 		@number[rand(0...@number.length)] = 0
@@ -34,7 +34,8 @@ class Number
 	end
 
 	def convert_num_to_string
-		@num_to_string = [@number].join 
+		@num_to_string = [@number].join
+		return @num_to_string
 	end
 
 	def print_number

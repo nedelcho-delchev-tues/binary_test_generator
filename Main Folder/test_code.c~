@@ -1,9 +1,13 @@
 #include <stdio.h>
-int main(){ 
-	int orig = 0x123; 
-	int num = 0x2342; 
-	int result = orig & num; 
-	printf("%d",result); 
-	
-return 0;
+int main(){
+long testValue = 0xbadecf00;
+int a = 0;
+if(testValue & (1 << 4)){
+a = 1;
+}else{
+a = 2;
+}
+printf("%d", a);
+
+	return 0;
 }

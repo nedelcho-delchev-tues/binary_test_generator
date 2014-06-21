@@ -1,9 +1,9 @@
 #include <stdio.h>
 int main(){
- int orig = 0xef0b;
-int insert = 0x00be;
-int a = orig | (insert << 7);
-printf("%d", a);
- 
+int value1 = 331;
+int value2 = 302;
+int result = (value1 << 3) & (value2 >> 3);
+printf("%d\n", result);
+
 	return 0;
 }

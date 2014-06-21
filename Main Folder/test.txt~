@@ -1,0 +1,121 @@
+
+
+
+int orig = 0x0aab;
+int insert = 0xd0e0;
+int a = orig | (insert << 6);
+printf("%d\n", a);
+
+
+
+
+
+int orig = 0xad0f;
+int insert = 0x0cad;
+int a = orig | (insert << 7);
+printf("%d\n", a);
+
+
+
+
+
+int orig = 0xac0e;
+int insert = 0x0fa0;
+int a = orig | (insert << 6);
+int b = orig | (insert << 6);
+int result = a | b;
+printf("%d\n", result);
+
+
+
+
+
+int orig = 0xf00e;
+int insert = 0x0af0;
+int a = orig | (insert << 6);
+int b = orig | (insert << 7);
+int result = a ^ b;
+printf("%d\n", result);
+
+
+
+
+
+int orig = 0x00dd;
+int insert = 0xb00b;
+int a = orig | (insert << 6);
+int b = orig | (insert << 7);
+int result = a | b;
+printf("%d\n", result);
+
+
+
+
+
+int i = 0x00ac;
+int left = 0x00ac & (1 << 6);
+printf("%d\n", left);
+
+
+
+
+
+long value1 = 0xfe0ad0dd;
+long value2 = 0xacc00ace;
+long result = (value1 << 2) & (value2 >> 4);
+printf("%ld\n", result);
+
+
+
+
+
+int value1 = 496;
+int value2 = 200;
+int result = (value1 << 4) | (value2 >> 4);
+printf("%d\n", result);
+
+
+
+
+
+long testValue = 0xdb0a0bbc;
+int a = 0;
+if(testValue & (1 << 4)){
+a = 1;
+}else{
+a = 2;
+}
+printf("%d\n", a);
+
+
+
+
+
+long testValue = 0xbafb0ce0;
+int a = 0;
+if(testValue ^ (1 << 4)){
+a = 1;
+}else{
+a = 2;
+}
+printf("%d\n", a);
+
+
+
+
+
+int value1 = 400;
+int value2 = 382;
+int result = (value1 << 3) & (value2 >> 3);
+printf("%d\n", result);
+
+
+
+
+
+int value1 = 130;
+int value2 = 301;
+int result = (value1 << 3) ^ (value2 >> 3);
+printf("%d\n", result);
+
+
