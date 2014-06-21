@@ -1,0 +1,74 @@
+int orig = 0xe787;
+int insert = 0xac5c;
+int a = orig | (insert << 6);
+
+
+int orig = 0x0595;
+int insert = 0xfc35;
+int a = orig | (insert << 6);
+
+
+int orig = 0x643a;
+int insert = 0xb5c2;
+int a = orig | (insert << 6);
+int b = orig | (insert << 6);
+int result = a & b;
+
+
+int orig = 0x0acc;
+int insert = 0xf4be;
+int a = orig | (insert << 7);
+int b = orig | (insert << 6);
+int result = a | b;
+
+
+int orig = 0xa116;
+int insert = 0x5a1a;
+int a = orig | (insert << 6);
+int b = orig | (insert << 6);
+int result = a | b;
+
+
+int i = 0x88a5;
+int left = 0x88a5 | (1 << 0);
+
+
+long value1 = 0xfd11efc0;
+long value2 = 0xfd6c82ba;
+long result = (value1 << 4) & (value2 >> 3);
+
+
+int value1 = 300;
+int value2 = 299;
+int result = (value1 << 4) | (value2 >> 4);
+
+
+long testValue = 0xf3defa8d;
+int a = 0;
+if(testValue & (1 << 4)){
+a = 1;
+}else{
+a = 2;
+}
+
+
+long testValue = 0x9c8e648f;
+int a = 0;
+int result = 0;
+if((result = testValue & testValue ^ testValue | (1 << 3))){
+a = 1;
+}else{
+a = 2;
+}
+
+
+int value1 = 484;
+int value2 = 207;
+int result = (value1 << 3) ^ (value2 >> 3);
+
+
+int value1 = 253;
+int value2 = 465;
+int result = (value1 << 3) & (value2 >> 3);
+
+

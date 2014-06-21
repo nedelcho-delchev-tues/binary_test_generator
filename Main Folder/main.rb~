@@ -1,15 +1,23 @@
 load 'number.rb'
 load 'test.rb' 
 
-number_of_test = ARGV[0]
+number_of_tests = 1
+difficulty = "easy"
+
+number_of_tests = ARGV[0]
 difficulty = ARGV[1]
 
-test = Test.new(difficulty)
-test.generate_tests
+if number_of_tests == nil
+	puts "no tests"
+	number_of_tests = 1
+end
 
-#num = Number.new(difficulty, 4)
-#num.generate_random_hex_num
-#puts num.print_number
+if difficulty == nil
+	puts "no difficulty"
+	difficulty = "easy"
+end
 
-#puts "Number of Tests = #{number_of_test}"
-#puts "Difficulty =  #{difficulty}"
+number_of_tests.to_i.times do |i|
+	test = Test.new(i+1, difficulty)
+	test.generate_tests
+end
