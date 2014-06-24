@@ -3,6 +3,7 @@ class C_code_generator
 	@ending_of_C_file
 	@essential_code
 	@test_id
+	@all_tasks
 
 	def initialize(id_of_test)
 		@begining_of_C_file = 
@@ -14,6 +15,8 @@ class C_code_generator
 		@essential_code = ""
 
 		@test_id = id_of_test
+
+		@all_tasks = ''
 	end
 
 	def set_code(code)
@@ -49,10 +52,13 @@ class C_code_generator
 	end
 
 	def write_in_txt
-		data_file = "tests/test_#{@test_id}.txt"
+		@all_tasks += @essential_code.split("printf")[0]
+		#parsed_string = @all_tasks
+		data_file = "tests/test_#{@test_id}.html"
 		File.open(File.expand_path(data_file), "a") do |file|
-			file << @essential_code.split("printf")[0]
-			file << "\n\n"
+			file << @all_tasks
+			#file << @essential_code.split("printf")[0]
 		end
+
 	end
 end
