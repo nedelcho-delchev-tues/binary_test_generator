@@ -6,8 +6,6 @@ class Code_generator
 	@essential_code
 	@test_id
 	@all_tasks
-	#@begining_of_html_file
-	#@ending_of_html_file
 
 	def initialize(id_of_test)
 		@begining_of_C_file = 
@@ -22,9 +20,6 @@ class Code_generator
 
 		@all_tasks = ""
 
-		#@begining_of_html_file = "<html><body>"
-
-		#@ending_of_html_file = "</html></body>"
 	end
 
 	def set_code(code)
@@ -61,5 +56,7 @@ class Code_generator
 			file.write(merge_tasks)
 			file << "</html>"
 		end
+		kit = PDFKit.new(data_file)
+		kit.to_file("tests/test_#{@test_id}.pdf")
 	end
 end
