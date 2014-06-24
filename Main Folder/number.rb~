@@ -1,3 +1,4 @@
+
 class Number
 	@number
 	@difficulty
@@ -19,22 +20,16 @@ class Number
 	end
 
 	def rand_num_easy
-		# B, D, F
-		random = rand(3) 
-		num = ("B" if random == 0) || ("D" if random == 1) || "F"
-
 		@number.each_index do |el|
-			@number[el] = num
+			@number[el] = rand(10...16).to_s(16)
 		end
-
-		@number.length/2.times do 
-			@number[rand(0...@number.length)] = 0
-		end
+		@number[rand(0...@number.length)] = 0
+		@number[rand(0...@number.length)] = 0
 	end
 
 	def rand_num_hard
 		@number.each_index do |el|
-			@number[el] = rand(16).to_s(16).upcase
+			@number[el] = rand(16).to_s(16)
 		end
 	end
 
