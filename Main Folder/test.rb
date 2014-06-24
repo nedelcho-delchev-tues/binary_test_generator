@@ -1,5 +1,5 @@
 load 'number.rb'
-load 'C_code_generator.rb'
+load 'code_generator.rb'
 
 class Test
 	@test_id
@@ -8,8 +8,8 @@ class Test
 	def initialize(id,dif)
 		@test_id = id
 		@test_difficulty = dif
-		@converter = C_code_generator.new(@test_id) 
-		@converter.delete_txt # Delete txt before new test... Just for now
+		@converter = Code_generator.new(@test_id) 
+		#@converter.delete_txt # Delete txt before new test... Just for now
 	end
 
 	def generate_tests
@@ -42,7 +42,7 @@ class Test
 		
 		@converter.set_code(code)
 		@converter.create_C_file
-		@converter.write_in_txt
+		@converter.convert
 	end
 	
 	# Task 3, 4, 5
@@ -65,7 +65,7 @@ class Test
 	
 		@converter.set_code(code)
 		@converter.create_C_file
-		@converter.write_in_txt
+		@converter.convert
 	end
 
 	# Task 6
@@ -80,7 +80,7 @@ class Test
 
 		@converter.set_code(code)
 		@converter.create_C_file
-		@converter.write_in_txt
+		@converter.convert
 	end
 
 	# Task 7
@@ -100,7 +100,7 @@ class Test
 
 		@converter.set_code(code)	
 		@converter.create_C_file
-		@converter.write_in_txt
+		@converter.convert
 	end
 
 	# Task 8, 11, 12
@@ -117,7 +117,7 @@ class Test
 
 		@converter.set_code(code)
 		@converter.create_C_file
-		@converter.write_in_txt
+		@converter.convert
 	end
 
 	# Task 9
@@ -133,7 +133,7 @@ class Test
 
 		@converter.set_code(code)
 		@converter.create_C_file
-		@converter.write_in_txt
+		@converter.convert
 	end
 
 	# Task 10
@@ -149,7 +149,7 @@ class Test
 
 		@converter.set_code(code)
 		@converter.create_C_file
-		@converter.write_in_txt
+		@converter.convert
 	end
 
 	def random_operation

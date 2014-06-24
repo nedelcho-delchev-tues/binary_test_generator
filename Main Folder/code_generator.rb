@@ -1,9 +1,13 @@
-class C_code_generator
+require 'pdfkit'
+
+class Code_generator
 	@begining_of_C_file
 	@ending_of_C_file
 	@essential_code
 	@test_id
 	@all_tasks
+	#@begining_of_html_file
+	#@ending_of_html_file
 
 	def initialize(id_of_test)
 		@begining_of_C_file = 
@@ -16,7 +20,11 @@ class C_code_generator
 
 		@test_id = id_of_test
 
-		@all_tasks = ''
+		@all_tasks = ""
+
+		#@begining_of_html_file = "<html><body>"
+
+		#@ending_of_html_file = "</html></body>"
 	end
 
 	def set_code(code)
@@ -36,29 +44,22 @@ class C_code_generator
 
 	def run_C_file
 		system("gcc test_code.c");
-		result = system("./a.out >> tests/test_#{@test_id}_results.txt");
+		result = system("./a.out >> tests/test_#{@test_id}_results.html");
 	end
 
-	def delete_txt
-		data_file = "tests/test_#{@test_id}.txt"
-		File.open(File.expand_path(data_file), "w") do |file|
-			file << ""
-		end
-
-		data_file = "tests/test_#{@test_id}_results.txt"
-		File.open(File.expand_path(data_file), "w") do |file|
-			file << ""
-		end
-	end
-
-	def write_in_txt
+	
+	def	merge_tasks
 		@all_tasks += @essential_code.split("printf")[0]
-		#parsed_string = @all_tasks
-		data_file = "tests/test_#{@test_id}.html"
-		File.open(File.expand_path(data_file), "a") do |file|
-			file << @all_tasks
-			#file << @essential_code.split("printf")[0]
-		end
+	end
 
+	def convert
+		#data_file = "tests/test_#{@test_id}.html"
+		data_file = File.new("tests/test_#{@test_id}.html", "w+")
+		#tests_path = "/tests"
+		data_file.puts "<html>"
+		File.open(File.expand_path(data_file), "a") do |file|
+			file.write(merge_tasks)
+			file << "</html>"
+		end
 	end
 end
