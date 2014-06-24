@@ -42,7 +42,12 @@ class Code_generator
 		result = system("./a.out >> tests/test_#{@test_id}_results.html");
 	end
 
-	
+	def results_pdf
+		results_file = File.new("tests/test_#{@test_id}_results.html", "r")
+		kit = PDFKit.new(results_file)
+		kit.to_file("tests/test_results_#{@test_id}.pdf")
+	end
+		
 	def	merge_tasks
 		@all_tasks += @essential_code.split("printf")[0]
 	end
@@ -58,5 +63,6 @@ class Code_generator
 		end
 		kit = PDFKit.new(data_file)
 		kit.to_file("tests/test_#{@test_id}.pdf")
+		results_pdf
 	end
 end

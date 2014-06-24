@@ -1,0 +1,52 @@
+<html>
+g = 0x0FF0;
+int insert = 0x0FF0;
+int a = orig | (insert << 7);
+int orig = 0x0BB0;
+int insert = 0xDD00;
+int a = orig | (insert << 6);
+int orig = 0x0DD0;
+int insert = 0xF00F;
+int a = orig | (insert << 6);
+int b = orig | (insert << 6);
+int result = a | b;
+int orig = 0x0BBB;
+int insert = 0x0F0F;
+int a = orig | (insert << 7);
+int b = orig | (insert << 7);
+int result = a ^ b;
+int orig = 0x0B0B;
+int insert = 0x0BBB;
+int a = orig | (insert << 6);
+int b = orig | (insert << 7);
+int result = a ^ b;
+int i = 0xD00D;
+int left = 0xD00D ^ (1 << 2);
+long value1 = 0xDD0DDDD0;
+long value2 = 0xBB0BBBBB;
+long result = (value1 << 3) & (value2 >> 4);
+int value1 = 208;
+int value2 = 439;
+int result = (value1 << 4) & (value2 >> 4);
+long testValue = 0xFFFFF0F0;
+int a = 0;
+if(testValue ^ (1 << 4)){
+a = 1;
+}else{
+a = 2;
+}
+long testValue = 0x0DD0DDDD;
+int a = 0;
+int result = 0;
+if((result = testValue & testValue ^ testValue | (1 << 4))){
+a = 1;
+}else{
+a = 2;
+}
+int value1 = 444;
+int value2 = 261;
+int result = (value1 << 3) ^ (value2 >> 3);
+int value1 = 136;
+int value2 = 508;
+int result = (value1 << 4) ^ (value2 >> 4);
+</html>
